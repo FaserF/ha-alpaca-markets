@@ -1,6 +1,6 @@
 [project]
 name = "ha-alpaca-markets"
-version = "1.0.0-dev0"
+version = "1.0.1-dev0"
 description = "Home Assistant custom integration for Alpaca Markets."
 authors = [
     {name = "FaserF", email = "github@fabiseitz.de"}
