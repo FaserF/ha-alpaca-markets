@@ -5,13 +5,16 @@ from __future__ import annotations
 import logging
 from typing import Any
 
-import aiohttp
 import voluptuous as vol
-from homeassistant.config_entries import ConfigEntry, ConfigFlow, ConfigFlowResult, OptionsFlow
-from homeassistant.const import CONF_SCAN_INTERVAL
+from homeassistant.config_entries import (
+    ConfigEntry,
+    ConfigFlow,
+    ConfigFlowResult,
+    OptionsFlow,
+)
 from homeassistant.core import callback
-from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers import selector
+from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
 from .api.client import AlpacaAPIClient
 from .api.exceptions import AlpacaAuthError, AlpacaConnectionError, AlpacaError
@@ -34,7 +37,9 @@ STEP_USER_SCHEMA = vol.Schema(
     {
         vol.Required(CONF_API_KEY_ID): str,
         vol.Required(CONF_API_SECRET_KEY): str,
-        vol.Required(CONF_TRADING_MODE, default=DEFAULT_TRADING_MODE): selector.SelectSelector(
+        vol.Required(
+            CONF_TRADING_MODE, default=DEFAULT_TRADING_MODE
+        ): selector.SelectSelector(
             selector.SelectSelectorConfig(
                 options=[TRADING_MODE_PAPER, TRADING_MODE_LIVE],
                 translation_key="trading_mode",
@@ -109,7 +114,9 @@ class AlpacaMarketsConfigFlow(ConfigFlow, domain=DOMAIN):
             step_id="reauth_confirm",
             data_schema=vol.Schema(
                 {
-                    vol.Required(CONF_API_KEY_ID, default=entry.data.get(CONF_API_KEY_ID, "")): str,
+                    vol.Required(
+                        CONF_API_KEY_ID, default=entry.data.get(CONF_API_KEY_ID, "")
+                    ): str,
                     vol.Required(CONF_API_SECRET_KEY): str,
                 }
             ),

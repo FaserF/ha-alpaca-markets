@@ -15,7 +15,7 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
 from .api.client import AlpacaAPIClient
 from .api.exceptions import AlpacaError
-from .const import DATA_CLIENT, DATA_COORDINATOR, DOMAIN
+from .const import DATA_CLIENT, DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
 

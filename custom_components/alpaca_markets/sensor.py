@@ -197,17 +197,17 @@ CLOCK_SENSORS: tuple[AlpacaSensorDescription, ...] = (
         key="next_market_open",
         translation_key="next_market_open",
         device_class=SensorDeviceClass.TIMESTAMP,
-        value_fn=lambda d: dt_util.parse_datetime(d.clock.next_open)
-        if d.clock.next_open
-        else None,
+        value_fn=lambda d: (
+            dt_util.parse_datetime(d.clock.next_open) if d.clock.next_open else None
+        ),
     ),
     AlpacaSensorDescription(
         key="next_market_close",
         translation_key="next_market_close",
         device_class=SensorDeviceClass.TIMESTAMP,
-        value_fn=lambda d: dt_util.parse_datetime(d.clock.next_close)
-        if d.clock.next_close
-        else None,
+        value_fn=lambda d: (
+            dt_util.parse_datetime(d.clock.next_close) if d.clock.next_close else None
+        ),
     ),
 )
 

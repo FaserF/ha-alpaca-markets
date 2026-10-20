@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import logging
-from typing import Any
 
 import voluptuous as vol
 from homeassistant.core import HomeAssistant, ServiceCall
@@ -37,7 +36,12 @@ PLACE_ORDER_SCHEMA = vol.Schema(
         vol.Required("symbol"): cv.string,
         vol.Required("side"): vol.In([ORDER_SIDE_BUY, ORDER_SIDE_SELL]),
         vol.Required("order_type"): vol.In(
-            [ORDER_TYPE_MARKET, ORDER_TYPE_LIMIT, ORDER_TYPE_STOP, ORDER_TYPE_STOP_LIMIT]
+            [
+                ORDER_TYPE_MARKET,
+                ORDER_TYPE_LIMIT,
+                ORDER_TYPE_STOP,
+                ORDER_TYPE_STOP_LIMIT,
+            ]
         ),
         vol.Required("time_in_force"): vol.In(
             [TIME_IN_FORCE_DAY, TIME_IN_FORCE_GTC, TIME_IN_FORCE_IOC, TIME_IN_FORCE_FOK]
@@ -61,7 +65,9 @@ CLOSE_POSITION_SCHEMA = vol.Schema(
         vol.Required("entry_id"): cv.string,
         vol.Required("symbol"): cv.string,
         vol.Optional("qty"): vol.Coerce(float),
-        vol.Optional("percentage"): vol.All(vol.Coerce(float), vol.Range(min=0, max=100)),
+        vol.Optional("percentage"): vol.All(
+            vol.Coerce(float), vol.Range(min=0, max=100)
+        ),
     }
 )
 
@@ -124,9 +130,7 @@ def register_services(hass: HomeAssistant) -> None:
             )
             _LOGGER.info("Position closed: %s", call.data["symbol"])
         except AlpacaError as err:
-            _LOGGER.error(
-                "Failed to close position %s: %s", call.data["symbol"], err
-            )
+            _LOGGER.error("Failed to close position %s: %s", call.data["symbol"], err)
             raise
 
     if not hass.services.has_service(DOMAIN, SERVICE_PLACE_ORDER):

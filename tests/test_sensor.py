@@ -2,13 +2,7 @@
 
 from __future__ import annotations
 
-import pytest
 from custom_components.alpaca_markets.coordinator import (
-    AlpacaAccountData,
-    AlpacaClockData,
-    AlpacaData,
-    AlpacaOrderSummary,
-    AlpacaPositionSummary,
     _parse_account,
     _parse_clock,
     _parse_orders,

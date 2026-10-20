@@ -14,7 +14,6 @@ import logging
 from typing import Any
 
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ConfigEntryAuthFailed, ConfigEntryNotReady
 from homeassistant.helpers import config_validation as cv
@@ -59,13 +58,9 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     try:
         await client.get_account()
     except AlpacaAuthError as err:
-        raise ConfigEntryAuthFailed(
-            f"Invalid Alpaca API credentials: {err}"
-        ) from err
+        raise ConfigEntryAuthFailed(f"Invalid Alpaca API credentials: {err}") from err
     except AlpacaConnectionError as err:
-        raise ConfigEntryNotReady(
-            f"Cannot connect to Alpaca API: {err}"
-        ) from err
+        raise ConfigEntryNotReady(f"Cannot connect to Alpaca API: {err}") from err
     except AlpacaError as err:
         raise ConfigEntryNotReady(f"Alpaca API error during setup: {err}") from err
 

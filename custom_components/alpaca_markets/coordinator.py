@@ -198,9 +198,7 @@ class AlpacaDataCoordinator(DataUpdateCoordinator[AlpacaData]):
     async def _async_update_data(self) -> AlpacaData:
         """Fetch all data from Alpaca API."""
         try:
-            account_raw, clock_raw, positions_raw, orders_raw = (
-                await self._fetch_all()
-            )
+            account_raw, clock_raw, positions_raw, orders_raw = await self._fetch_all()
         except AlpacaAuthError as err:
             from homeassistant.exceptions import ConfigEntryAuthFailed
 

@@ -5,15 +5,6 @@ from __future__ import annotations
 from unittest.mock import AsyncMock, patch
 
 import pytest
-from homeassistant.core import HomeAssistant
-
-from custom_components.alpaca_markets.const import (
-    CONF_API_KEY_ID,
-    CONF_API_SECRET_KEY,
-    CONF_TRADING_MODE,
-    DOMAIN,
-    TRADING_MODE_PAPER,
-)
 
 MOCK_ACCOUNT = {
     "id": "mock_acc_12345",

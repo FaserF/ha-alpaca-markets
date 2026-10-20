@@ -13,6 +13,7 @@ from .exceptions import (
     AlpacaAPIError,
     AlpacaAuthError,
     AlpacaConnectionError,
+    AlpacaError,
     AlpacaRateLimitError,
     AlpacaTimeoutError,
 )
@@ -83,7 +84,7 @@ class AlpacaAPIClient:
                     return await response.text()
         except AlpacaError:
             raise
-        except asyncio.TimeoutError as err:
+        except TimeoutError as err:
             raise AlpacaTimeoutError("Request timed out") from err
         except aiohttp.ClientConnectionError as err:
             raise AlpacaConnectionError(f"Connection error: {err}") from err
@@ -97,7 +98,7 @@ class AlpacaAPIClient:
     async def get_account(self) -> dict[str, Any]:
         """Get account details."""
         result = await self._request("GET", "/account")
-        return result  # type: ignore[return-value]
+        return result
 
     # ------------------------------------------------------------------ #
     # Market clock
@@ -106,7 +107,7 @@ class AlpacaAPIClient:
     async def get_clock(self) -> dict[str, Any]:
         """Get market clock (open/closed status, next open/close times)."""
         result = await self._request("GET", "/clock")
-        return result  # type: ignore[return-value]
+        return result
 
     # ------------------------------------------------------------------ #
     # Positions
@@ -115,12 +116,12 @@ class AlpacaAPIClient:
     async def get_positions(self) -> list[dict[str, Any]]:
         """Get all open positions."""
         result = await self._request("GET", "/positions")
-        return result or []  # type: ignore[return-value]
+        return result or []
 
     async def get_position(self, symbol: str) -> dict[str, Any]:
         """Get open position for a specific symbol."""
         result = await self._request("GET", f"/positions/{symbol}")
-        return result  # type: ignore[return-value]
+        return result
 
     async def close_position(
         self,
@@ -135,7 +136,7 @@ class AlpacaAPIClient:
         elif percentage is not None:
             params["percentage"] = str(percentage)
         result = await self._request("DELETE", f"/positions/{symbol}", params=params)
-        return result or {}  # type: ignore[return-value]
+        return result or {}
 
     async def close_all_positions(self, cancel_orders: bool = True) -> None:
         """Liquidate all open positions."""
@@ -161,12 +162,12 @@ class AlpacaAPIClient:
             "/orders",
             params={"status": status, "limit": limit, "direction": direction},
         )
-        return result or []  # type: ignore[return-value]
+        return result or []
 
     async def get_order(self, order_id: str) -> dict[str, Any]:
         """Get a single order by its ID."""
         result = await self._request("GET", f"/orders/{order_id}")
-        return result  # type: ignore[return-value]
+        return result
 
     async def place_order(
         self,
@@ -195,7 +196,7 @@ class AlpacaAPIClient:
         if stop_price is not None:
             payload["stop_price"] = str(stop_price)
         result = await self._request("POST", "/orders", json=payload)
-        return result  # type: ignore[return-value]
+        return result
 
     async def cancel_order(self, order_id: str) -> None:
         """Cancel an open order by ID."""
@@ -220,7 +221,7 @@ class AlpacaAPIClient:
             "/account/portfolio/history",
             params={"period": period, "timeframe": timeframe},
         )
-        return result or {}  # type: ignore[return-value]
+        return result or {}
 
     # ------------------------------------------------------------------ #
     # Account activities
@@ -240,7 +241,7 @@ class AlpacaAPIClient:
         result = await self._request(
             "GET", endpoint, params={"page_size": page_size, "direction": "desc"}
         )
-        return result or []  # type: ignore[return-value]
+        return result or []
 
     # ------------------------------------------------------------------ #
     # Watchlists
@@ -249,7 +250,7 @@ class AlpacaAPIClient:
     async def get_watchlists(self) -> list[dict[str, Any]]:
         """Get all watchlists."""
         result = await self._request("GET", "/watchlists")
-        return result or []  # type: ignore[return-value]
+        return result or []
 
     # ------------------------------------------------------------------ #
     # Assets
@@ -265,4 +266,4 @@ class AlpacaAPIClient:
         if asset_class:
             params["asset_class"] = asset_class
         result = await self._request("GET", "/assets", params=params)
-        return result or []  # type: ignore[return-value]
+        return result or []
