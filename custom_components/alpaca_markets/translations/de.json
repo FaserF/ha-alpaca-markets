@@ -1,0 +1,104 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Alpaca Markets Einrichtung",
+        "description": "Gib deine Alpaca Markets API-Zugangsdaten ein. Du findest sie unter [app.alpaca.markets](https://app.alpaca.markets/paper/dashboard/overview) → API-Schlüssel. [Mehr erfahren]({docs_url}).",
+        "data": {
+          "api_key_id": "API-Schlüssel-ID",
+          "api_secret_key": "Geheimer API-Schlüssel",
+          "trading_mode": "Handelsmodus"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Alpaca Markets erneut authentifizieren",
+        "description": "Die Alpaca API-Zugangsdaten sind nicht mehr gültig. Bitte gib deine aktualisierten Zugangsdaten ein.",
+        "data": {
+          "api_key_id": "API-Schlüssel-ID",
+          "api_secret_key": "Geheimer API-Schlüssel"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Ungültige API-Zugangsdaten. Bitte überprüfe deine Schlüssel-ID und den geheimen Schlüssel.",
+      "cannot_connect": "Keine Verbindung zur Alpaca API möglich. Überprüfe deine Internetverbindung.",
+      "unknown": "Ein unerwarteter Fehler ist aufgetreten."
+    },
+    "abort": {
+      "already_configured": "Dieses Alpaca-Konto ist bereits konfiguriert.",
+      "already_in_progress": "Der Konfigurationsfluss läuft bereits.",
+      "reauth_successful": "Erneute Authentifizierung war erfolgreich."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Alpaca Markets Optionen",
+        "description": "Konfiguriere die Optionen der Alpaca Markets Integration.",
+        "data": {
+          "update_interval": "Aktualisierungsintervall (Sekunden)"
+        }
+      }
+    }
+  },
+  "selector": {
+    "trading_mode": {
+      "options": {
+        "paper": "Papierhandel (Simulation)",
+        "live": "Echter Handel (Echtes Geld)"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "portfolio_value": { "name": "Portfolio-Wert" },
+      "cash": { "name": "Bargeld" },
+      "equity": { "name": "Eigenkapital" },
+      "last_equity": { "name": "Letztes Eigenkapital" },
+      "buying_power": { "name": "Kaufkraft" },
+      "daytrading_buying_power": { "name": "Day-Trading Kaufkraft" },
+      "long_market_value": { "name": "Long-Marktwert" },
+      "short_market_value": { "name": "Short-Marktwert" },
+      "unrealized_pl": { "name": "Nicht realisierter G&V" },
+      "unrealized_plpc": { "name": "Nicht realisierter G&V %" },
+      "realized_pl": { "name": "Realisierter G&V Heute" },
+      "initial_margin": { "name": "Erstmarge" },
+      "maintenance_margin": { "name": "Wartungsmarge" },
+      "daytrade_count": { "name": "Day-Trade-Anzahl" },
+      "account_status": {
+        "name": "Kontostatus",
+        "state": {
+          "active": "Aktiv",
+          "inactive": "Inaktiv",
+          "onboarding": "Onboarding",
+          "submission_failed": "Einreichung fehlgeschlagen",
+          "submitted": "Eingereicht",
+          "account_updated": "Konto aktualisiert",
+          "approval_pending": "Genehmigung ausstehend",
+          "rejected": "Abgelehnt",
+          "disabled": "Deaktiviert",
+          "account_closed": "Geschlossen"
+        }
+      },
+      "positions_count": { "name": "Offene Positionen" },
+      "positions_market_value": { "name": "Positionen Marktwert" },
+      "positions_unrealized_pl": { "name": "Positionen Nicht realisierter G&V" },
+      "open_orders": { "name": "Offene Aufträge" },
+      "next_market_open": { "name": "Nächste Marktöffnung" },
+      "next_market_close": { "name": "Nächster Marktschluss" }
+    },
+    "binary_sensor": {
+      "market_open": { "name": "Markt geöffnet" },
+      "trading_blocked": { "name": "Handel gesperrt" },
+      "account_blocked": { "name": "Konto gesperrt" },
+      "account_restricted": { "name": "Konto eingeschränkt" },
+      "pattern_day_trader": { "name": "Pattern-Day-Trader" },
+      "trade_suspended": { "name": "Handel ausgesetzt" },
+      "shorting_enabled": { "name": "Shorting aktiviert" }
+    },
+    "button": {
+      "cancel_all_orders": { "name": "Alle Aufträge stornieren" },
+      "close_all_positions": { "name": "Alle Positionen schließen" }
+    }
+  }
+}

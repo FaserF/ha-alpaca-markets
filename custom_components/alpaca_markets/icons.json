@@ -1,0 +1,42 @@
+{
+  "icons": {
+    "entity": {
+      "sensor": {
+        "portfolio_value": { "default": "mdi:cash-multiple" },
+        "cash": { "default": "mdi:cash" },
+        "equity": { "default": "mdi:chart-areaspline" },
+        "last_equity": { "default": "mdi:chart-areaspline-variant" },
+        "buying_power": { "default": "mdi:lightning-bolt" },
+        "daytrading_buying_power": { "default": "mdi:lightning-bolt-circle" },
+        "long_market_value": { "default": "mdi:trending-up" },
+        "short_market_value": { "default": "mdi:trending-down" },
+        "unrealized_pl": { "default": "mdi:chart-line" },
+        "unrealized_plpc": { "default": "mdi:percent" },
+        "realized_pl": { "default": "mdi:check-circle-outline" },
+        "initial_margin": { "default": "mdi:bank-outline" },
+        "maintenance_margin": { "default": "mdi:bank-check" },
+        "daytrade_count": { "default": "mdi:counter" },
+        "account_status": { "default": "mdi:account-check" },
+        "positions_count": { "default": "mdi:format-list-numbered" },
+        "positions_market_value": { "default": "mdi:briefcase-outline" },
+        "positions_unrealized_pl": { "default": "mdi:briefcase-arrow-up-down" },
+        "open_orders": { "default": "mdi:clipboard-list-outline" },
+        "next_market_open": { "default": "mdi:store-clock" },
+        "next_market_close": { "default": "mdi:store-clock-outline" }
+      },
+      "binary_sensor": {
+        "market_open": { "default": "mdi:store-open" },
+        "trading_blocked": { "default": "mdi:block-helper" },
+        "account_blocked": { "default": "mdi:account-lock" },
+        "account_restricted": { "default": "mdi:account-alert" },
+        "pattern_day_trader": { "default": "mdi:alert-circle-outline" },
+        "trade_suspended": { "default": "mdi:pause-circle" },
+        "shorting_enabled": { "default": "mdi:arrow-collapse-down" }
+      },
+      "button": {
+        "cancel_all_orders": { "default": "mdi:cancel" },
+        "close_all_positions": { "default": "mdi:close-circle" }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "domain": "alpaca_markets",
+  "name": "Alpaca Markets",
+  "codeowners": [
+    "@FaserF"
+  ],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/FaserF/ha-alpaca-markets",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/FaserF/ha-alpaca-markets/issues",
+  "loggers": [
+    "alpaca_markets"
+  ],
+  "requirements": [
+    "aiohttp>=3.9.0"
+  ],
+  "version": "1.0.0-dev0"
+}

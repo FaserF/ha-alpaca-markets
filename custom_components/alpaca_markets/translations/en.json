@@ -1,0 +1,104 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Alpaca Markets Setup",
+        "description": "Enter your Alpaca Markets API credentials. You can find them at [app.alpaca.markets](https://app.alpaca.markets/paper/dashboard/overview) → API Keys. [Learn more]({docs_url}).",
+        "data": {
+          "api_key_id": "API Key ID",
+          "api_secret_key": "API Secret Key",
+          "trading_mode": "Trading Mode"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Re-authenticate Alpaca Markets",
+        "description": "The Alpaca API credentials are no longer valid. Please enter your updated credentials.",
+        "data": {
+          "api_key_id": "API Key ID",
+          "api_secret_key": "API Secret Key"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Invalid API credentials. Please check your Key ID and Secret Key.",
+      "cannot_connect": "Cannot connect to the Alpaca API. Check your internet connection.",
+      "unknown": "An unexpected error occurred."
+    },
+    "abort": {
+      "already_configured": "This Alpaca account is already configured.",
+      "already_in_progress": "Configuration flow is already in progress.",
+      "reauth_successful": "Re-authentication was successful."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Alpaca Markets Options",
+        "description": "Configure the Alpaca Markets integration options.",
+        "data": {
+          "update_interval": "Update Interval (seconds)"
+        }
+      }
+    }
+  },
+  "selector": {
+    "trading_mode": {
+      "options": {
+        "paper": "Paper Trading (Simulation)",
+        "live": "Live Trading (Real Money)"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "portfolio_value": { "name": "Portfolio Value" },
+      "cash": { "name": "Cash" },
+      "equity": { "name": "Equity" },
+      "last_equity": { "name": "Last Equity" },
+      "buying_power": { "name": "Buying Power" },
+      "daytrading_buying_power": { "name": "Day Trading Buying Power" },
+      "long_market_value": { "name": "Long Market Value" },
+      "short_market_value": { "name": "Short Market Value" },
+      "unrealized_pl": { "name": "Unrealized P&L" },
+      "unrealized_plpc": { "name": "Unrealized P&L %" },
+      "realized_pl": { "name": "Realized P&L Today" },
+      "initial_margin": { "name": "Initial Margin" },
+      "maintenance_margin": { "name": "Maintenance Margin" },
+      "daytrade_count": { "name": "Day Trade Count" },
+      "account_status": {
+        "name": "Account Status",
+        "state": {
+          "active": "Active",
+          "inactive": "Inactive",
+          "onboarding": "Onboarding",
+          "submission_failed": "Submission Failed",
+          "submitted": "Submitted",
+          "account_updated": "Account Updated",
+          "approval_pending": "Approval Pending",
+          "rejected": "Rejected",
+          "disabled": "Disabled",
+          "account_closed": "Closed"
+        }
+      },
+      "positions_count": { "name": "Open Positions" },
+      "positions_market_value": { "name": "Positions Market Value" },
+      "positions_unrealized_pl": { "name": "Positions Unrealized P&L" },
+      "open_orders": { "name": "Open Orders" },
+      "next_market_open": { "name": "Next Market Open" },
+      "next_market_close": { "name": "Next Market Close" }
+    },
+    "binary_sensor": {
+      "market_open": { "name": "Market Open" },
+      "trading_blocked": { "name": "Trading Blocked" },
+      "account_blocked": { "name": "Account Blocked" },
+      "account_restricted": { "name": "Account Restricted" },
+      "pattern_day_trader": { "name": "Pattern Day Trader" },
+      "trade_suspended": { "name": "Trade Suspended" },
+      "shorting_enabled": { "name": "Shorting Enabled" }
+    },
+    "button": {
+      "cancel_all_orders": { "name": "Cancel All Orders" },
+      "close_all_positions": { "name": "Close All Positions" }
+    }
+  }
+}

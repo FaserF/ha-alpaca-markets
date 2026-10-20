@@ -1,0 +1,142 @@
+place_order:
+  name: Place Order
+  description: Place a new buy or sell order on Alpaca Markets.
+  fields:
+    entry_id:
+      name: Config Entry ID
+      description: The config entry ID of the Alpaca Markets integration instance.
+      required: true
+      example: "abc123"
+      selector:
+        text:
+    symbol:
+      name: Symbol
+      description: The asset symbol to trade (e.g. AAPL, BTC/USD).
+      required: true
+      example: "AAPL"
+      selector:
+        text:
+    side:
+      name: Side
+      description: Whether to buy or sell.
+      required: true
+      selector:
+        select:
+          options:
+            - buy
+            - sell
+    order_type:
+      name: Order Type
+      description: The type of order to place.
+      required: true
+      selector:
+        select:
+          options:
+            - market
+            - limit
+            - stop
+            - stop_limit
+    time_in_force:
+      name: Time in Force
+      description: How long the order remains active.
+      required: true
+      selector:
+        select:
+          options:
+            - day
+            - gtc
+            - ioc
+            - fok
+    qty:
+      name: Quantity
+      description: Number of shares/units to trade. Required if notional is not set.
+      required: false
+      example: 10
+      selector:
+        number:
+          min: 0
+          step: 0.001
+          mode: box
+    notional:
+      name: Notional (USD)
+      description: Dollar amount to trade (market orders only). Alternative to qty.
+      required: false
+      example: 100.00
+      selector:
+        number:
+          min: 0
+          step: 0.01
+          mode: box
+    limit_price:
+      name: Limit Price
+      description: Required for limit and stop_limit order types.
+      required: false
+      selector:
+        number:
+          min: 0
+          step: 0.01
+          mode: box
+    stop_price:
+      name: Stop Price
+      description: Required for stop and stop_limit order types.
+      required: false
+      selector:
+        number:
+          min: 0
+          step: 0.01
+          mode: box
+
+cancel_order:
+  name: Cancel Order
+  description: Cancel an open order by its ID.
+  fields:
+    entry_id:
+      name: Config Entry ID
+      description: The config entry ID of the Alpaca Markets integration instance.
+      required: true
+      selector:
+        text:
+    order_id:
+      name: Order ID
+      description: The UUID of the order to cancel.
+      required: true
+      example: "550e8400-e29b-41d4-a716-446655440000"
+      selector:
+        text:
+
+close_position:
+  name: Close Position
+  description: Close (liquidate) an open position for a symbol.
+  fields:
+    entry_id:
+      name: Config Entry ID
+      description: The config entry ID of the Alpaca Markets integration instance.
+      required: true
+      selector:
+        text:
+    symbol:
+      name: Symbol
+      description: The asset symbol whose position to close (e.g. AAPL, BTC/USD).
+      required: true
+      example: "AAPL"
+      selector:
+        text:
+    qty:
+      name: Quantity
+      description: Number of shares to close. If omitted, closes the full position.
+      required: false
+      selector:
+        number:
+          min: 0
+          step: 0.001
+          mode: box
+    percentage:
+      name: Percentage
+      description: Percentage of the position to close (0-100). Alternative to qty.
+      required: false
+      selector:
+        number:
+          min: 0
+          max: 100
+          step: 1
+          mode: slider
