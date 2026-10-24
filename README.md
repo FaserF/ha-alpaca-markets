@@ -214,6 +214,16 @@ Each configured instance displays its trading mode in the device title (e.g. `Al
 
 ---
 
+
+## 🔌 Recommended Hardware & Ecosystem Links
+
+| Device / Service | Integration Use Case | Link |
+| :--- | :--- | :--- |
+| **Trade Republic (Zinsen & kostenlose ETF-Sparpläne)** | Kompatibel mit Home Assistant Depot- & Cashflow-Sensoren | [Offizielle Geräte-Seite →](https://fabiseitz.de/go/tr) |
+| **Finanzfluss Copilot Dashboard** | Automatische Konto-, Depot- & Freistellungsauftrag-Synchronisation | [Offizielle Geräte-Seite →](https://fabiseitz.de/go/finanzfluss) |
+
+---
+
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
