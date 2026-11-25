@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Alpaca Markets Einrichtung",
-        "description": "Gib deine Alpaca Markets API-Zugangsdaten ein. Du findest sie unter [app.alpaca.markets](https://app.alpaca.markets/paper/dashboard/overview) → API-Schlüssel. [Mehr erfahren]({docs_url}).",
+        "description": "Gib deine Alpaca Markets API-Zugangsdaten ein. Du findest sie unter [app.alpaca.markets]({dashboard_url}) → API-Schlüssel. [Mehr erfahren]({docs_url}).",
         "data": {
           "api_key_id": "API-Schlüssel-ID",
           "api_secret_key": "Geheimer API-Schlüssel",
