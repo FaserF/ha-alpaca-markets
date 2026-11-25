@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Alpaca Markets Setup",
-        "description": "Enter your Alpaca Markets API credentials. You can find them at [app.alpaca.markets](https://app.alpaca.markets/paper/dashboard/overview) → API Keys. [Learn more]({docs_url}).",
+        "description": "Enter your Alpaca Markets API credentials. You can find them at [app.alpaca.markets]({dashboard_url}) → API Keys. [Learn more]({docs_url}).",
         "data": {
           "api_key_id": "API Key ID",
           "api_secret_key": "API Secret Key",

@@ -86,7 +86,10 @@ class AlpacaMarketsConfigFlow(ConfigFlow, domain=DOMAIN):
             step_id="user",
             data_schema=STEP_USER_SCHEMA,
             errors=errors,
-            description_placeholders={"docs_url": DOCS_URL},
+            description_placeholders={
+                "dashboard_url": "https://app.alpaca.markets/paper/dashboard/overview",
+                "docs_url": DOCS_URL,
+            },
         )
 
     async def async_step_reauth(
